@@ -8,7 +8,5 @@ public class SuperIPadRule implements Rule {
 
 	public Price apply(Catalogue catalogue, ShoppingCart cart, Price total) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
+		throw new RuntimeException("To be implemented");	}
 }
