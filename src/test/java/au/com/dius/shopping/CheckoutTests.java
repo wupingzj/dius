@@ -1,12 +1,15 @@
 package au.com.dius.shopping;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.math.BigDecimal;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import au.com.dius.shopping.ruleengine.PricingRule;
+import au.com.dius.shopping.ruleengine.PricingRuleEngine;
 
 public class CheckoutTests {
 	private ProductStore ps;
@@ -25,6 +28,10 @@ public class CheckoutTests {
 		ps.addToCatalogue(macbook);
 		ps.addToCatalogue(appleTV);
 		ps.addToCatalogue(vgaAdaptor);
+		
+		// init pricing rule
+		PricingRule pr = PricingRuleEngine.getInstance().getPricingRule();
+		co = new CheckoutImpl(pr, ps); // init with rules, products
 	}
 
 	@After
