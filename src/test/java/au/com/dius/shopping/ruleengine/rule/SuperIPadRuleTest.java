@@ -23,7 +23,7 @@ public class SuperIPadRuleTest extends RuleTest {
 
 		ShoppingCart cart = new ShoppingCartImpl();
 
-		Product p1 = new Product(SKU.IPD, "Super iPad", new Price("549.99"));
+		Product p1 = new Product(SKU.IPAD, "Super iPad", new Price("549.99"));
 		cart.addProduct(p1);
 		rule.apply(catalogue, cart, total);
 

@@ -24,7 +24,7 @@ public class VgaAdaptorBundleMacbookRuleTest extends RuleTest {
 
 		ShoppingCart cart = new ShoppingCartImpl();
 
-		Product p1 = new Product(SKU.VGA, "VGA adapter", new Price("30.00"));
+		Product p1 = new Product(SKU.VGAADAPTOR, "VGA adapter", new Price("30.00"));
 		cart.addProduct(p1);
 		rule.apply(catalogue, cart, total);
 

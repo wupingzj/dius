@@ -1,7 +1,7 @@
 package au.com.dius.shopping;
 
 public enum SKU {
-	IPD("ipd"), MBP("mbp"), ATV("atv"), VGA("VGA");
+	IPAD("ipd"), MACBOOK("mbp"), APPLETV("atv"), VGAADAPTOR("VGA");
 
 	private String sku;
 

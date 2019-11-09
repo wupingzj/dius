@@ -15,10 +15,10 @@ public class CheckoutTests {
 	private ProductStore ps;
 	private Checkout co;
 
-	private Product ipad = new Product(SKU.IPD, "Super iPad", new Price("549.99"));
-	private Product macbook = new Product(SKU.MBP, "MacBook Pro", new Price("1399.99"));
-	private Product appleTV = new Product(SKU.ATV, "Apple TV", new Price("109.50"));
-	private Product vgaAdaptor = new Product(SKU.VGA, "VGA adapter", new Price("30"));
+	private Product ipad = new Product(SKU.IPAD, "Super iPad", new Price("549.99"));
+	private Product macbook = new Product(SKU.MACBOOK, "MacBook Pro", new Price("1399.99"));
+	private Product appleTV = new Product(SKU.APPLETV, "Apple TV", new Price("109.50"));
+	private Product vgaAdaptor = new Product(SKU.VGAADAPTOR, "VGA adapter", new Price("30"));
 
 	@Before
 	public void setUp() throws Exception {
@@ -44,9 +44,9 @@ public class CheckoutTests {
 	 */
 	@Test
 	public void ThreeAppleTV_chargeTwoOnly() {
-		co.scan(SKU.ATV);
-		co.scan(SKU.ATV);
-		co.scan(SKU.ATV);
+		co.scan(SKU.APPLETV);
+		co.scan(SKU.APPLETV);
+		co.scan(SKU.APPLETV);
 
 		Price total = co.total();
 		assertEquals("The price of 3 apple tv for 2 should be $219", new BigDecimal("219.00"), total.getNativePrice());
@@ -58,10 +58,10 @@ public class CheckoutTests {
 	 */
 	@Test
 	public void ThreeAppleTV_OneVGA_chargeTwoOnly() {
-		co.scan(SKU.ATV);
-		co.scan(SKU.ATV);
-		co.scan(SKU.ATV);
-		co.scan(SKU.VGA);
+		co.scan(SKU.APPLETV);
+		co.scan(SKU.APPLETV);
+		co.scan(SKU.APPLETV);
+		co.scan(SKU.VGAADAPTOR);
 
 		Price total = co.total();
 		assertEquals("The price of 3 apple tv for 2 and one vga should be $249", new BigDecimal("249.00"), total.getNativePrice());
@@ -74,13 +74,13 @@ public class CheckoutTests {
 	 */
 	@Test
 	public void fourIpads_discountedPrice() {
-		co.scan(SKU.ATV);
-		co.scan(SKU.IPD);
-		co.scan(SKU.IPD);
-		co.scan(SKU.ATV);
-		co.scan(SKU.IPD);
-		co.scan(SKU.IPD);
-		co.scan(SKU.IPD);
+		co.scan(SKU.APPLETV);
+		co.scan(SKU.IPAD);
+		co.scan(SKU.IPAD);
+		co.scan(SKU.APPLETV);
+		co.scan(SKU.IPAD);
+		co.scan(SKU.IPAD);
+		co.scan(SKU.IPAD);
 
 		Price total = co.total();
 
@@ -96,9 +96,9 @@ public class CheckoutTests {
 	 */
 	@Test
 	public void buyMac_GetFreeVGA() {
-		co.scan(SKU.MBP);
-		co.scan(SKU.VGA);
-		co.scan(SKU.IPD);
+		co.scan(SKU.MACBOOK);
+		co.scan(SKU.VGAADAPTOR);
+		co.scan(SKU.IPAD);
 
 		Price total = co.total();
 		assertEquals(new BigDecimal("1949.98"), total.getNativePrice());

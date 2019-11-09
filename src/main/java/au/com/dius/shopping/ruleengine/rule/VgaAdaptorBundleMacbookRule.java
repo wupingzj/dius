@@ -15,8 +15,8 @@ public class VgaAdaptorBundleMacbookRule implements Rule {
 	public Price apply(Catalogue catalogue, ShoppingCart cart, Price total) {
 		Map<Product, Integer> productCounts = cart.countProducts();
 
-		Product macbook = catalogue.get(SKU.MBP);
-		Product vga = catalogue.get(SKU.VGA);
+		Product macbook = catalogue.get(SKU.MACBOOK);
+		Product vga = catalogue.get(SKU.VGAADAPTOR);
 
 		Integer macbookCount = productCounts.get(macbook);
 		Integer vgaCount = productCounts.get(vga);

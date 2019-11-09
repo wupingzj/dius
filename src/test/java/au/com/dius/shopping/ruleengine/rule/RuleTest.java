@@ -9,10 +9,10 @@ import au.com.dius.shopping.SKU;
 
 public abstract class RuleTest {
 	Catalogue catalogue = new Catalogue();
-	Product appleTV = new Product(SKU.ATV, "Apple TV", new Price("109.50"));
-	Product macbook = new Product(SKU.MBP, "MacBook Pro", new Price("1399.99"));
-	Product ipad = new Product(SKU.IPD, "Super iPad", new Price("549.99"));
-	Product vga = new Product(SKU.VGA, "VGA adapter", new Price("30.00"));
+	Product appleTV = new Product(SKU.APPLETV, "Apple TV", new Price("109.50"));
+	Product macbook = new Product(SKU.MACBOOK, "MacBook Pro", new Price("1399.99"));
+	Product ipad = new Product(SKU.IPAD, "Super iPad", new Price("549.99"));
+	Product vga = new Product(SKU.VGAADAPTOR, "VGA adapter", new Price("30.00"));
 
 	@Before
 	public void setUp() throws Exception {

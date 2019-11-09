@@ -14,7 +14,7 @@ public class AppleTV3to2Rule implements Rule {
 	@Override
 	public Price apply(Catalogue catalogue, ShoppingCart cart, Price total) {
 		Map<Product, Integer> productCounts = cart.countProducts();
-		Product appleTV = catalogue.get(SKU.ATV);
+		Product appleTV = catalogue.get(SKU.APPLETV);
 
 		Integer appleTVcount = productCounts.get(appleTV);
 		if (appleTVcount == null) {

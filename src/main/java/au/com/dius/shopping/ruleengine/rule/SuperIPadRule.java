@@ -19,7 +19,7 @@ public class SuperIPadRule implements Rule {
 	public Price apply(Catalogue catalogue, ShoppingCart cart, Price total) {
 		Map<Product, Integer> productCounts = cart.countProducts();
 
-		Product ipad = catalogue.get(SKU.IPD);
+		Product ipad = catalogue.get(SKU.IPAD);
 
 		Integer ipadCount = productCounts.get(ipad);
 		if (ipadCount == null) {
