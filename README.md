@@ -31,7 +31,7 @@ The following test cases are implemented:
 The implementation is taking the flexibility into consideration. This is achieved by the introduction of the rule engine [PricingRuleImpl](https://github.com/wupingzj/dius/blob/master/src/main/java/au/com/dius/shopping/ruleengine/PricingRuleImpl.java)
 
 To add a new rule, 
-- simply create a rule class that implements the au.com.dius.shopping.ruleengine.rule.Rule interface with a corresponding test case.
+- simply create a rule class that implements the [Rule](https://github.com/wupingzj/dius/blob/master/src/main/java/au/com/dius/shopping/ruleengine/rule/Rule.java) interface with a corresponding test case.
 For example,  [SuperIPadRule](https://github.com/wupingzj/dius/blob/master/src/main/java/au/com/dius/shopping/ruleengine/rule/SuperIPadRule.java). 
 
 - register the new rule to PricingRuleImpl by something like
