@@ -25,9 +25,20 @@ public class PricingRuleImpl implements PricingRule {
 		rules.add(rule3);
 	}
 
-	public Price apply(Catalogue catalogue, ShoppingCart cart) {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("To be implemented");
+	public Price apply(final Catalogue catalogue, ShoppingCart cart) {
+		final Price total = new Price("0.00");
+		
+		// calculate total
+		cart.getProducts().forEach( p-> {
+			total.change(p.getPrice().getNativePrice());
+		});
+		
+		// apply rules
+		this.rules.forEach( rule -> {
+			rule.apply(catalogue, cart, total);			
+		});
+
+		return total;
 	}
 
 }

@@ -80,20 +80,21 @@ public class CheckoutTests {
 		BigDecimal tvCost = appleTV.getPrice().getNativePrice().multiply(new BigDecimal("2"));
 		BigDecimal ipadCost = new BigDecimal(499.99).multiply(new BigDecimal("5"));
 		BigDecimal expected = tvCost.add(ipadCost);
-		String msg = String.format("The price of 2 apple tvs and 5 ipads should be %d", expected.toString());
+		String msg = String.format("The price of 2 apple tvs and 5 ipads should be %s", expected);
 		assertEquals(msg, expected, total.getNativePrice());
 
 		expected = new BigDecimal("2718.95");
-		msg = String.format("The price of 2 apple tvs and 5 ipads should be %d", new BigDecimal("2718.95"));
+		msg = String.format("The price of 2 apple tvs and 5 ipads should be %s", new BigDecimal("2718.95"));
 		assertEquals(msg, expected, total.getNativePrice());
 	}
 
 	/**
 	 * Scenario: bundle a free VGA adaptor free of charge with every Macbook Pro
 	 * sold
+	 * Scenario: 1 macbook, 1 vga adaptor and 1 ipad, should charge $1949.98
 	 */
 	@Test
-	public void buyMac_GetFreeHDMI() {
+	public void buyMac_GetFreeVGA() {
 		co.scan(SKU.MBP);
 		co.scan(SKU.VGA);
 		co.scan(SKU.IPD);
