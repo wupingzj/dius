@@ -39,8 +39,8 @@ public class CheckoutTests {
 	}
 
 	/**
-	 * Scenario: SKUs scan: appletv, appletv, appletv, vga Expected: charge for two
-	 * tv only. Total $249
+	 * Scenario: SKUs scan: appletv, appletv, appletv Expected: charge for two
+	 * tv only. Total $219
 	 */
 	@Test
 	public void ThreeAppleTV_chargeTwoOnly() {
@@ -49,15 +49,22 @@ public class CheckoutTests {
 		co.scan(SKU.ATV);
 
 		Price total = co.total();
-		assertEquals("The price of 3 apple tv for 2 should be $219", new BigDecimal("219"), total.getNativePrice());
+		assertEquals("The price of 3 apple tv for 2 should be $219", new BigDecimal("219.00"), total.getNativePrice());
+	}
 
-		BigDecimal expected = appleTV.getPrice().getNativePrice().multiply(new BigDecimal("2"));
-		expected = expected.add(vgaAdaptor.getPrice().getNativePrice());
-		String msg = String.format("The price of 3 apple tv and 1 vga should be %d", expected.toString());
+	/**
+	 * Scenario: SKUs scan: appletv, appletv, appletv, vga Expected: charge for two
+	 * tv only. Total $249
+	 */
+	@Test
+	public void ThreeAppleTV_OneVGA_chargeTwoOnly() {
+		co.scan(SKU.ATV);
+		co.scan(SKU.ATV);
+		co.scan(SKU.ATV);
+		co.scan(SKU.VGA);
 
-		assertEquals(msg, expected, total.getNativePrice());
-		msg = String.format("The price of 3 apple tv and 1 vga should be %d", new BigDecimal("249.00"));
-		assertEquals(msg, expected, total.getNativePrice());
+		Price total = co.total();
+		assertEquals("The price of 3 apple tv for 2 and one vga should be $249", new BigDecimal("249.00"), total.getNativePrice());
 	}
 
 	/**
@@ -77,14 +84,8 @@ public class CheckoutTests {
 
 		Price total = co.total();
 
-		BigDecimal tvCost = appleTV.getPrice().getNativePrice().multiply(new BigDecimal("2"));
-		BigDecimal ipadCost = new BigDecimal(499.99).multiply(new BigDecimal("5"));
-		BigDecimal expected = tvCost.add(ipadCost);
-		String msg = String.format("The price of 2 apple tvs and 5 ipads should be %s", expected);
-		assertEquals(msg, expected, total.getNativePrice());
-
-		expected = new BigDecimal("2718.95");
-		msg = String.format("The price of 2 apple tvs and 5 ipads should be %s", new BigDecimal("2718.95"));
+		BigDecimal expected = new BigDecimal("2718.95");
+		String msg = String.format("The price of 2 apple tvs and 5 ipads should be %s", new BigDecimal("2718.95"));
 		assertEquals(msg, expected, total.getNativePrice());
 	}
 

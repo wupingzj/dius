@@ -20,7 +20,17 @@ public class CheckoutImpl implements Checkout {
 	}
 
 	public void scan(SKU sku) {
-		// TODO Auto-generated method stub
+		if (sku == null) {
+			throw new IllegalArgumentException("SKU cannot be null or empty");
+		}
+		
+		Product product = ps.getProduct(sku);
+		if (product == null) {
+			throw new IllegalArgumentException(String.format("The product %s is not valid.", product));
+		}
+
+		this.cart.addProduct(product);
+
 	}
 
 	public Price total() {
