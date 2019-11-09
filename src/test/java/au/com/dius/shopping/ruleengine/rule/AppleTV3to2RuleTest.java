@@ -16,14 +16,14 @@ public class AppleTV3to2RuleTest extends RuleTest {
 
 	private Rule rule = new AppleTV3to2Rule();
 
-	// Test basic flow. The rule should not impact total price.
+	// Test basic flow with a single ipad. The rule should not impact total price.
 	@Test
 	public void testBasicFlow() {
 		Price total = new Price("5678.21");
 
 		ShoppingCart cart = new ShoppingCartImpl();
 
-		Product p1 = new Product(SKU.IPD, "Super iPad", new Price("649.99"));
+		Product p1 = new Product(SKU.IPD, "Super iPad", new Price("549.99"));
 		cart.addProduct(p1);
 		rule.apply(catalogue, cart, total);
 
@@ -47,6 +47,6 @@ public class AppleTV3to2RuleTest extends RuleTest {
 
 		// total price should be 2* appleTV price
 		BigDecimal expected = appleTVprice.getNativePrice().multiply(new BigDecimal(2));
-		assertEquals(expected, newTotal);
+		assertEquals(expected, newTotal.getNativePrice());
 	}
 }
