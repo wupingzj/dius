@@ -24,7 +24,8 @@ public class CheckoutImpl implements Checkout {
 	}
 
 	public Price total() {
-		// TODO Auto-generated method stub
-		throw new RuntimeException("To be impletemented");
+		Price total = pr.apply(ps.getCatalogue(), this.cart);
+
+		return total;
 	}
 }

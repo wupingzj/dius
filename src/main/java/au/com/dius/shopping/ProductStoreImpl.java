@@ -6,4 +6,12 @@ public class ProductStoreImpl implements ProductStore {
 	public void addToCatalogue(Product product) {
 		catalogue.add(product);
 	}
+
+	public Catalogue getCatalogue() {
+		return catalogue;
+	}
+
+	public Product getProduct(SKU productSku) {
+		return catalogue.get(productSku);
+	}
 }
