@@ -40,7 +40,6 @@ public class SuperIPadRuleTest extends RuleTest {
 		
 		// setup test data
 		for (int i = 0; i < numberOfIpads; i++) {
-			// add 3 appleTVs
 			cart.addProduct(ipad);
 		}
 		Price total = cart.getTotal();
@@ -48,8 +47,7 @@ public class SuperIPadRuleTest extends RuleTest {
 		// apply rule
 		Price newTotal = rule.apply(catalogue, cart, total);
 
-		// total price should be 2* appleTV price
 		BigDecimal expected = new BigDecimal("499.99").multiply(new BigDecimal(numberOfIpads));
-		assertEquals(expected, newTotal);
+		assertEquals(expected, newTotal.getNativePrice());
 	}
 }
