@@ -26,4 +26,27 @@ The following test cases are implemented:
 # Run the test suite
 - Run AllTests
 
+
+# Design
+The implementation is taking the flexibility into consideration. This is achieved by the introduction of the rule engine [PricingRuleImpl](https://github.com/wupingzj/dius/blob/master/src/main/java/au/com/dius/shopping/ruleengine/PricingRuleImpl.java)
+
+To add a new rule, 
+- simply create a rule class that implements the au.com.dius.shopping.ruleengine.rule.Rule interface with a corresponding test case.
+For example,  [SuperIPadRule](https://github.com/wupingzj/dius/blob/master/src/main/java/au/com/dius/shopping/ruleengine/rule/SuperIPadRule.java). 
+
+- register the new rule to PricingRuleImpl by something like
+```
+	public PricingRuleImpl() {
+		Rule rule1 = new AppleTV3to2Rule();
+		rules.add(rule1);
+
+		Rule rule2 = new SuperIPadRule();
+		rules.add(rule2);
+
+		Rule rule3 = new VgaAdaptorBundleMacbookRule();
+		rules.add(rule3);
+	}
+```
+
+
 Thanks for reviewing the implementation
