@@ -41,10 +41,6 @@ public class Price {
 		return this;
 	}
 
-	public void multiply(int i) {
-		setPrice(this.price.multiply(new BigDecimal(i)));
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

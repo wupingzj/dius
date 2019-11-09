@@ -1,7 +1,7 @@
 package au.com.dius.shopping;
 
 public interface Checkout {
-	void read(String sku);
+	void scan(SKU sku);
 
     Price total();
 }

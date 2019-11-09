@@ -7,7 +7,7 @@ import java.util.Map;
  * The product catalogue that holds all mapping of SKU code to product.
  */
 public class Catalogue {
-	public Map<String, Product> catalogue = new HashMap<String, Product>();
+	public Map<SKU, Product> catalogue = new HashMap<SKU, Product>();
 
 	/**
 	 * Adds given product into catalogue
@@ -21,13 +21,13 @@ public class Catalogue {
 	/**
 	 * Gets product with given <code>sku</code>from catalogue
 	 * 
-	 * @param sku SKU code
+	 * @param sku SKU
 	 */
-	public Product get(String sku) {
+	public Product get(SKU sku) {
 		return catalogue.get(sku);
 	}
 
-	public Map<String, Product> getAll() {
+	public Map<SKU, Product> getAll() {
 		return this.catalogue;
 	}
 }

@@ -1,17 +1,17 @@
 package au.com.dius.shopping;
 
 public class Product {
-	private final String sku;
+	private final SKU sku;
 	private final String name;
 	private final Price price;
 
-	public Product(String sku, String name, Price price) {
+	public Product(SKU sku, String name, Price price) {
 		this.sku = sku;
 		this.name = name;
 		this.price = price;
 	}
 
-	public String getSku() {
+	public SKU getSku() {
 		return sku;
 	}
 
